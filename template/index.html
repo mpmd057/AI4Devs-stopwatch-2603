@@ -1,13 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Timer and Countdown</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stopwatch</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-x: hidden;
+    }
+
+    .stopwatch {
+      width: min(92vw, 1800px);
+      margin-top: clamp(18px, 3.5vh, 34px);
+    }
+
+    .display-panel {
+      width: 100%;
+      height: clamp(150px, 18vw, 360px);
+      min-height: 170px;
+      background: #e9ecff;
+      border: clamp(7px, 0.72vw, 14px) solid #2d2d2d;
+      border-radius: clamp(34px, 4.3vw, 72px);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr auto;
+      justify-items: center;
+      align-items: center;
+      padding: clamp(10px, 1.2vw, 22px) clamp(36px, 5vw, 90px) clamp(8px, 1.2vw, 22px);
+    }
+
+    #timeDisplay {
+      font-size: clamp(74px, 13vw, 250px);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: 0.015em;
+      color: #000000;
+      transform: translateY(0.02em);
+      font-variant-numeric: tabular-nums;
+    }
+
+    #millisecondsDisplay {
+      width: 72%;
+      text-align: right;
+      font-size: clamp(30px, 3.5vw, 70px);
+      line-height: 0.82;
+      color: #000000;
+      font-weight: 400;
+      font-variant-numeric: tabular-nums;
+      padding-right: clamp(10px, 2vw, 40px);
+    }
+
+    .controls {
+      width: 100%;
+      margin-top: clamp(56px, 7vw, 120px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 clamp(52px, 3.4vw, 76px);
+      gap: clamp(40px, 8vw, 220px);
+    }
+
+    button {
+      width: min(36vw, 650px);
+      height: clamp(110px, 13.2vw, 260px);
+      border: clamp(7px, 0.7vw, 14px) solid #2d2d2d;
+      border-radius: clamp(22px, 2vw, 42px);
+      color: #000000;
+      font-size: clamp(54px, 5.2vw, 102px);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    #startStopButton {
+      background: #00f000;
+    }
+
+    #clearButton {
+      background: #ff1008;
+    }
+
+    button:active {
+      transform: scale(0.99);
+    }
+
+    @media (max-width: 760px) {
+      .stopwatch {
+        width: 94vw;
+      }
+
+      .display-panel {
+        min-height: 120px;
+        padding-inline: 18px;
+      }
+
+      #millisecondsDisplay {
+        width: 78%;
+        padding-right: 8px;
+      }
+
+      .controls {
+        margin-top: 36px;
+        padding: 0 8px;
+        gap: 20px;
+      }
+
+      button {
+        width: 44vw;
+        height: 92px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .controls {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-<h1>Timer and Countdown</h1>
-<script src="script.js"></script>
+  <main class="stopwatch" aria-label="Stopwatch">
+    <section class="display-panel" aria-live="polite">
+      <div id="timeDisplay">00:00:00</div>
+      <div id="millisecondsDisplay">000</div>
+    </section>
+
+    <section class="controls" aria-label="Stopwatch controls">
+      <button id="startStopButton" type="button">Start</button>
+      <button id="clearButton" type="button">Clear</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
