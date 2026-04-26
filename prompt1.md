@@ -21,3 +21,4 @@ Te estoy enviando el archivo stopwatch.png que se suministrará para que puedas 
 
 Debes entregar un prompt lo mas detallado posible, para que un nuevo agente de IA, complete la tarea en un unico intento.
 
+Chatbot: ChatGPT

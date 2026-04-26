@@ -184,3 +184,5 @@ Entrega únicamente el contenido final de los dos archivos:
 ```
 // código completo aquí
 ```
+
+Chatbot: ChatGPT
